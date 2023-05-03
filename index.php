@@ -1,5 +1,6 @@
 <?php
 include("include/common.php");
+
 //upload data từ database
 $data = db_select("select * from product");
 ?>
@@ -63,6 +64,7 @@ $data = db_select("select * from product");
                     dùng, phục vụ người dùng 1 cách hoàn hảo nhất
                 </p>
                 <!-- <button>Mua ngay</button> -->
+                <br>
                 <a href="admin/product/order.php">Mua ngay</a>
             </div>
             <div class="box-right">

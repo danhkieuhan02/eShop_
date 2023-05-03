@@ -1,5 +1,4 @@
 <?php
-// include("./include/common.php");
 include('../../include/common.php');
 
 //upload data từ database
@@ -29,7 +28,7 @@ $data = db_select("select * from product");
         </div>
         <div class="item">
           <ul id="main-menu">
-            <a href="index.php">Sản phẩm</a>
+            <a href="admin/product/index.php">Sản phẩm</a>
           </ul>
         </div>
         <div class="item">
@@ -88,7 +87,7 @@ $data = db_select("select * from product");
         foreach ($data as $items) {
           $id = $items["id"];
           $name = $items["name"];
-          $price = $items["price"];
+          $price = number_format($items["price"]);
           $content = $items["content"];
           $file  = upload($items["img_path"] ?? "", true);
           echo <<<EQL
