@@ -16,13 +16,13 @@ if (is_method_get()) {
     $price = $_POST["price"] ?? "";
     $content = $_POST["content"] ?? "";
     // Cập nhật data của bản product 
-    // $name = $_POST["product"];
+    $name = $_POST["name"];
     $filename = upload_and_return_filename("img_path", "product");
     if (empty($filename)) {
-        $sql = "update product set name=?, price=?, content=?, where id=?";
+        $sql = "update product set name=?, price=?, content=? where id=?";
         $params = [$name, $price, $content, $id];
     } else {
-        $sql = "update product set name=?, price=?, content=?, img_path=?, where id=?";
+        $sql = "update product set name=?, price=?, content=?, img_path=? where id=?";
         $params = [$name, $price, $content, $filename, $id];
     }
     db_execute($sql, $params);
@@ -48,7 +48,7 @@ if (is_method_get()) {
             <img src="<?php upload($data["img_path"]) ?>" alt="" width="100" /> <?php } ?>
         <br>
         <label class="box name">Tên món</label>
-        <input class="box name" type="text" name="prd_name" require value="<?php echo $data["name"] ?>" />
+        <input class="box name" type="text" name="name" require value="<?php echo $data["name"] ?>" />
         <br><br>
         <label class="box name">Giá</label>
         <input type="number" name="price" required value="<?php echo $data["price"] ?>" />

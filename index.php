@@ -65,16 +65,16 @@ $data = db_select("select * from product");
                 <!-- <button>Mua ngay</button> -->
                 <a href="admin/product/order.php">Mua ngay</a>
             </div>
-        </div>
-        <div class="box-right">
-            <img src="<?php asset("assets/img_1.png"); ?>" alt="" />
-            <img src="<?php asset("assets/img_2.png"); ?>" alt="" />
-            <img src="<?php asset("assets/img_3.png"); ?>" alt="" />
-        </div>
-        <div class="to-bottom">
-            <a href="">
-                <img src="<?php asset("assets/to_bottom.png"); ?>" alt="" />
-            </a>
+            <div class="box-right">
+                <img src="<?php asset("assets/img_1.png"); ?>" alt="" />
+                <img src="<?php asset("assets/img_2.png"); ?>" alt="" />
+                <img src="<?php asset("assets/img_3.png"); ?>" alt="" />
+                <div class="to-bottom">
+                    <a href="">
+                        <img src="<?php asset("assets/to_bottom.png"); ?>" alt="" />
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div id="wp-products">
@@ -90,7 +90,7 @@ $data = db_select("select * from product");
             foreach ($data as $items) {
                 $id = $items["id"];
                 $name = $items["name"];
-                $price = $items["price"];
+                $price = number_format($items["price"]);
                 $content = $items["content"];
                 $file  = upload($items["img_path"] ?? "", true);
                 echo <<<EQL
